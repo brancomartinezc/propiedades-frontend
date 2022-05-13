@@ -19,7 +19,7 @@
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
-    <div class="sale-rent-label">for rent</div>
+    <!--<div class="sale-rent-label">for rent</div>-->
     <div class="price-label">$ 2.500.000</div>
   </div>
 

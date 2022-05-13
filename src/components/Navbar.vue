@@ -15,7 +15,7 @@
                     <RouterLink class="nav-link" to="/properties">Properties</RouterLink>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Cities</a>
+                    <RouterLink class="nav-link" to="/search">Search</RouterLink>
                 </li>
             </ul>
         </div>
