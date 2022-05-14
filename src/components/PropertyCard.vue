@@ -19,7 +19,7 @@
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
-    <!--<div class="sale-rent-label">for rent</div>-->
+    <div class="sale-rent-label">for rent</div>
     <div class="price-label">$ 2.500.000</div>
   </div>
 
@@ -37,7 +37,10 @@
       <div class="col-md-6"><img src="icons/bath1.png" alt="..."> 1 Baths</div>
     </div>
     <div class="row justify-content-left mt-4">
-      <div class="col-md-12"><img id="address-icon" src="icons/address1.png" alt="..."> Fragata Sarmiento 1037</div>
+      <div class="col-md-12"><img id="address-icon" src="icons/address1.png" alt="..."> E Hyde Park Blvd 2059</div>
+    </div>
+    <div class="row justify-content-left mt-2">
+      <div class="col-md-12"><img id="address-icon" src="icons/world2.png" alt="..."> Los Angeles</div>
     </div>
     <!--<div class="row justify-content-center mt-4">
       <a href="#" class="col-md-4 btn btn-success rounded-0">View more</a>
@@ -72,8 +75,12 @@ export default {
   max-width: 30px;
 }
 
+#city-icon{
+  max-width: 30px;
+}
+
 .sale-rent-label {
-    background-color: #43c546;
+    background-color: #29852A;
     box-shadow: 0 1px 2px rgb(0 0 0 / 20%);
     color: #fff;
     font-size: 1.1em;

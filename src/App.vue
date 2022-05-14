@@ -1,7 +1,7 @@
 <template>
   <Navbar />
   <RouterView />
-  <h1 align="center">footer</h1>
+  <h1 class="mt-5" align="center">footer</h1>
 </template>
 
 <script>
