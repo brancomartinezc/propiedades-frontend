@@ -5,9 +5,9 @@
 </template>
 
 <script>
-import { RouterLink, RouterView } from 'vue-router'
-import Navbar from './components/Navbar.vue'
-import PropertyCard from './components/PropertyCard.vue'
+import Navbar from './components/Navbar.vue';
+import PropertyCard from './components/PropertyCard.vue';
+import('@/assets/mdb.dark.css');
 
 export default {
   name: 'App',

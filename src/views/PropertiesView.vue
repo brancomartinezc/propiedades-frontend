@@ -5,13 +5,13 @@
     </div>
 
     <div class="row mt-5">
-      <div class="col-md-4"> <PropertyCard carouselId="1"/> </div>
-      <div class="col-md-4"> <PropertyCard carouselId="2"/> </div>
-      <div class="col-md-4"> <PropertyCard carouselId="3"/> </div>
-      <div class="col-md-4"> <PropertyCard carouselId="4"/> </div>
-      <div class="col-md-4"> <PropertyCard carouselId="5"/> </div>
-      <div class="col-md-4"> <PropertyCard carouselId="6"/> </div>
-      <div class="col-md-4"> <PropertyCard carouselId="7"/> </div>
+      <div class="col-md-4"> <PropertyCard propId="1"/> </div>
+      <div class="col-md-4"> <PropertyCard propId="2"/> </div>
+      <div class="col-md-4"> <PropertyCard propId="3"/> </div>
+      <div class="col-md-4"> <PropertyCard propId="4"/> </div>
+      <div class="col-md-4"> <PropertyCard propId="5"/> </div>
+      <div class="col-md-4"> <PropertyCard propId="6"/> </div>
+      <div class="col-md-4"> <PropertyCard propId="7"/> </div>
     </div>
   </div>
 </template>
