@@ -58,21 +58,73 @@
     </div>
 
     <div class="row mt-5 justify-content-center">
-        <div class="col-md-10 border">
-          MAPA
-          </div>
+        <div class="border" id="map" ref="mapElement"></div>
     </div>
 
 </div>
 </template>
 
-<script>
 
+
+<script>
+const tilesProvider = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
+const propLocation = 'E Hyde Park Blvd 2059 Los Angeles';
+const propLocationQuery = propLocation.replace(/ /g, '+');
+const nominatimAPI = `https://nominatim.openstreetmap.org/search?q=${propLocationQuery}&format=json`;
+
+let latitude;
+let longitude;
+
+let getCoords = async () => {
+
+  const response = await fetch(nominatimAPI);
+  let coords = await response.json();
+
+  latitude = coords[0].lat;
+  longitude = coords[0].lon;
+};
+
+let setMap = async () => {
+
+  await getCoords();
+
+  let map = L.map('map').setView([latitude, longitude], 13);
+
+  L.tileLayer(tilesProvider,{
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+    maxZoom: 30
+  }).addTo(map);
+
+  /*let markerIcon = L.icon({
+    iconUrl: '../src/assets/icons/marker.png'
+  });
+
+  L.marker([latitude, longitude], {
+    icon: markerIcon
+  }).addTo(map);*/
+
+  L.marker([latitude, longitude]).addTo(map);
+}
+
+export default {
+    name: 'PropertiesView',
+    props: ['propId'],
+    mounted () {
+      setMap();
+    }
+}
 </script>
+
+
 
 <style>
 .subtitle{
   font-size: 40px;
+}
+
+#map{ 
+  height: 300px;
+  width: 600px;
 }
 
 #price{
