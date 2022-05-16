@@ -24,7 +24,7 @@
         </div>
     </div>
 
-     <div class="row mt-5 justify-content-between">
+    <div class="row mt-5 justify-content-between">
         <div class="col-md-2 border"></div>
         <div class="col-md-2 border"><img id="address-icon" src="@/assets/icons/world2.png" alt="..."> For Sale</div>
         <div class="col-md-2 border"><img id="address-icon" src="@/assets/icons/world2.png" alt="..."> $ 2500000</div>
@@ -54,11 +54,11 @@
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis facere, 
           quis officia sequi, iure nisi unde cumque asperiores doloribus expedita inventore accusantium 
           blanditiis. Incidunt blanditiis saepe, asperiores quas neque temporibus!
-          </div>
+        </div>
     </div>
 
     <div class="row mt-5 justify-content-center">
-        <div class="border" id="map" ref="mapElement"></div>
+        <div class="col-md-10" id="map" ref="mapElement"></div>
     </div>
 
 </div>
@@ -123,8 +123,8 @@ export default {
 }
 
 #map{ 
-  height: 300px;
-  width: 600px;
+  height: 400px;
+  width: 800px;
 }
 
 #price{

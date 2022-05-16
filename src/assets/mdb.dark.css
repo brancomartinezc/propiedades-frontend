@@ -2239,7 +2239,7 @@ progress {
 .col-form-label-lg {
   padding-top: calc(.5rem + 1px);
   padding-bottom: calc(.5rem + 1px);
-  font-size: 1rem
+  font-size: 1.3rem
 }
 
 .col-form-label-sm {
@@ -14138,7 +14138,7 @@ i.flag-zw:before {
 }
 
 .form-check-input[type=radio] {
-  border-radius: 50%;
+  border-radius: 30%;
   width: 1.25rem;
   height: 1.25rem
 }
@@ -14155,7 +14155,7 @@ i.flag-zw:before {
   height: 1rem;
   z-index: 1;
   display: block;
-  border-radius: 50%;
+  border-radius: 30%;
   background-color: #fff
 }
 
@@ -14165,7 +14165,7 @@ i.flag-zw:before {
 }
 
 .form-check-input[type=radio]:checked:after {
-  border-radius: 50%;
+  border-radius: 30%;
   width: .625rem;
   height: .625rem;
   margin-top: .1875rem;
