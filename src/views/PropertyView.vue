@@ -1,16 +1,16 @@
 <template>
-  <div class="container border">
-
-    <div class="row mt-5 justify-content-center">
-        <div class="col-md-8">
+  <div class="container property-view mt-5 p-5 border">
+    
+    <div class="row justify-content-center">
+        <div class="col-md-6">
             <div :id="`carousel${propId}`" class="carousel slide border" data-bs-interval="false">
                 <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="https://i.ibb.co/MVG3q9F/la.webp" class="d-block w-50" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://i.ibb.co/PxdnjnG/la2.webp" class="d-block w-50" alt="...">
-                </div>
+                  <div class="carousel-item active">
+                      <img src="https://i.ibb.co/MVG3q9F/la.webp" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                      <img src="https://i.ibb.co/PxdnjnG/la2.webp" class="d-block w-100" alt="...">
+                  </div>
                 </div>
                 <button class="carousel-control-prev" type="button" :data-bs-target="`#carousel${propId}`" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -23,12 +23,12 @@
             </div>
         </div>
     </div>
-
+    
     <div class="row mt-5 justify-content-between">
-        <div class="col-md-2 border"></div>
-        <div class="col-md-2 border"><img id="address-icon" src="@/assets/icons/world2.png" alt="..."> For Sale</div>
-        <div class="col-md-2 border"><img id="address-icon" src="@/assets/icons/world2.png" alt="..."> $ 2500000</div>
-        <div class="col-md-2 border"></div>
+        <div class="col-md-2"></div>
+        <div class="col-md-2"><img id="address-icon" src="@/assets/icons/sale1.png" alt="..."> For Sale</div>
+        <div class="col-md-3" id="price-in-property-view">$ 2.500.000</div>
+        <div class="col-md-1"></div>
     </div>
 
     <div class="row mt-5 justify-content-center">
@@ -68,7 +68,7 @@
 
 <script>
 const tilesProvider = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
-const propLocation = 'E Hyde Park Blvd 2059 Los Angeles';
+const propLocation = 'avenida alem 1053 bahia blanca';
 const propLocationQuery = propLocation.replace(/ /g, '+');
 const nominatimAPI = `https://nominatim.openstreetmap.org/search?q=${propLocationQuery}&format=json`;
 
@@ -118,8 +118,19 @@ export default {
 
 
 <style>
+.property-view{
+    background: #252525;
+    font-size: 20px;
+}
+
 .subtitle{
   font-size: 40px;
+}
+
+#price-in-property-view{
+  font-size: 35px;
+  color: #00b409;
+  font-weight: bold;
 }
 
 #map{ 

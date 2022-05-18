@@ -10,9 +10,9 @@
     </div>
 
     <div class="row mt-5">
-      <div class="col-md-4"> <PropertyCard carouselId="1"/> </div>
-      <div class="col-md-4"> <PropertyCard carouselId="2"/> </div>
-      <div class="col-md-4"> <PropertyCard carouselId="3"/> </div>
+      <div class="col-md-4"> <PropertyCard propId="1"/> </div>
+      <div class="col-md-4"> <PropertyCard propId="2"/> </div>
+      <div class="col-md-4"> <PropertyCard propId="3"/> </div>
     </div>
 
     <div class="row mt-5">

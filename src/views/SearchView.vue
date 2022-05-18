@@ -3,7 +3,7 @@
     <div class="container search-view mt-5 pt-5 pb-5">
 
         <div class="row justify-content-center">
-            <div align="center" class="col-md-4 search-title"><img id="address-icon" src="@/assets/icons/search1.png" alt="..."> Advanced Search</div>
+            <div align="center" class="col-md-5 search-title"><img id="search-icon" src="@/assets/icons/search1.png" alt="..."> Advanced Search</div>
         </div>
 
         <div class="form-group mt-5">
@@ -11,12 +11,16 @@
             <div class="row">
                 <div class="col-md-2"></div>
                 <!-- city filter -->
-                <div class="col-md-3">
+                
+                <div class="col-md-4">
                     <label class="category mb-2" for="city"><img id="address-icon" src="@/assets/icons/world2.png" alt="..."> City</label>
-                    <input class="form-control form-control-lg" type="text" id="city">
+                    <select name="city_id" class="form-select">
+                        <option value="1">Los Angeles, California, USA</option>
+                        <option value="2">Toronto, Ontario, CA</option>
+                    </select>
                 </div>
 
-                <div class="col-md-2"></div>
+                <div class="col-md-1"></div>
                 <!-- type filter -->
                 <div class="col-md-2">
                     <div class="category"><img id="type-icon" src="@/assets/icons/building2.png" alt="..."> Type</div>
@@ -159,7 +163,7 @@
 
 <style>
 .search-title{
-    font-size: 40px;
+    font-size: 43px;
 }
 
 .search-view{
@@ -185,5 +189,9 @@
 
 #type-icon{
     max-width: 40px;
+}
+
+#search-icon{
+    max-width: 60px;
 }
 </style>

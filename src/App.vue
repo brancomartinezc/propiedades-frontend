@@ -1,12 +1,13 @@
 <template>
   <Navbar />
   <RouterView />
-  <h1 class="mt-5" align="center">footer</h1>
+  <Footer />
 </template>
 
 <script>
 import Navbar from './components/Navbar.vue';
 import PropertyCard from './components/PropertyCard.vue';
+import Footer from './components/Footer.vue';
 import('@/assets/mdb.dark.css');
 
 export default {
@@ -14,6 +15,7 @@ export default {
   components: {
     Navbar,
     PropertyCard,
+    Footer,
   }
 }
 </script>
