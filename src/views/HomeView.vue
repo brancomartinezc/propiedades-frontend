@@ -1,5 +1,5 @@
 <template>
-  <div class="container border">
+  <div class="container">
     <!--<div class="row justify-content-center m-5">
         <div class="col-md-2 text-center"><a class="btn btn-success btn-lg" href="#"><img src="icons/home3.png" alt="..." class="icons"></a></div>
         <div class="col-md-2 text-center"><a class="btn btn-success btn-lg" href="#"><img src="icons/building1.png" alt="..." class="icons"></a></div>
@@ -29,10 +29,6 @@
 </template>
 
 <style>
-.icons{
-  max-width: 45px;
-}
-
 .subtitle{
   font-size: 40px;
 }

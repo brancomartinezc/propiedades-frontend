@@ -143,12 +143,15 @@
                 <div class="col-md-2"></div>
                 <div class="col-md-2 category"><img src="@/assets/icons/bath1.png" alt="..."> Baths</div>
             </div>
-            <div class="row ">
+            <div class="row justify-content-around">
                 <!-- baths filter -->
-                <div class="col-md-2"></div>
                 <div class="col-md-2">
                     <label class="col-form-label col-form-label-lg" for="min_baths">Min baths</label>
                     <input class="form-control form-control-lg" type="number" id="min_baths">
+                </div>
+
+                <div class="col-md-2 mt-5">
+                    <a class="btn btn-primary btn-lg" id="search-btn">Search</a>
                 </div>
             </div>
 
@@ -193,5 +196,10 @@
 
 #search-icon{
     max-width: 60px;
+}
+
+#search-btn{
+    font-size: 20px;
+    font-weight: bold;
 }
 </style>

@@ -2,7 +2,7 @@
 
 <footer class="mt-5">
   <div class="text-center p-4 footer-style">
-    © 2022 Copyright: <a class="link-color" href="#">UNITED Real Estate Company.</a>
+    © 2022 Copyright: <a class="united-link" href="#">UNITED Real Estate Company.</a>
   </div>
 </footer>
 
@@ -23,7 +23,8 @@ export default {
   background: rgb(41, 41, 41);
 }
 
-.link-color{
+.united-link{
     color: white !important;
+    font-weight: bold;
 }
 </style>
