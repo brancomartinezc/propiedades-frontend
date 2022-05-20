@@ -56,7 +56,7 @@
 
     <div class="row mt-5 justify-content-center">
         <div class="col-md-10">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis facere, 
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis facere, 
           quis officia sequi, iure nisi unde cumque asperiores doloribus expedita inventore accusantium 
           blanditiis. Incidunt blanditiis saepe, asperiores quas neque temporibus!
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis facere, 
@@ -64,7 +64,8 @@
           blanditiis. Incidunt blanditiis saepe, asperiores quas neque temporibus!
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis facere, 
           quis officia sequi, iure nisi unde cumque asperiores doloribus expedita inventore accusantium 
-          blanditiis. Incidunt blanditiis saepe, asperiores quas neque temporibus!
+          blanditiis. Incidunt blanditiis saepe, asperiores quas neque temporibus!</p>
+          
         </div>
     </div>
 
@@ -129,9 +130,13 @@ export default {
 
 
 <style>
+p{
+  text-align: justify;
+}
+
 .property-view{
-    background: #252525;
-    font-size: 22px;
+  background: #252525;
+  font-size: 22px;
 }
 
 .prop-info{
@@ -158,22 +163,8 @@ export default {
 
 @media (max-width: 1400px) {
   #map {
-    height: 500px;
-    width: 440px;
-  }
-}
-
-@media (max-width: 1200px) {
-  #map {
-    height: 280px;
-    width: 410px;
-  }
-}
-
-@media (max-width: 1000px) {
-  #map {
-    height: 200px;
-    width: 295px;
+    height: 400px;
+    width: 850px;
   }
 }
 
