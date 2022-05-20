@@ -1,48 +1,57 @@
 <template>
   <div class="container property-view mt-5 p-5 border">
-    
-    <div class="row justify-content-center">
-        <div class="col-md-6 mt-2">
-            <div :id="`carousel${propId}`" class="carousel slide border" data-bs-interval="false">
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                      <img src="https://i.ibb.co/MVG3q9F/la.webp" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                      <img src="https://i.ibb.co/PxdnjnG/la2.webp" class="d-block w-100" alt="...">
-                  </div>
+
+    <div class="row">
+
+        <!-- left column (info) -->
+        <div class="col-md-6">
+            
+            <div class="row mt-5 justify-content-center">
+                <div class="col-md-5"><div class="container mt-2 pt-3 pb-3 prop-info"><img id="area-icon" src="@/assets/icons/area1.png" alt="..."> 250 mt2</div></div>
+                <div class="col-md-5"><div class="container mt-2 pt-3 pb-3 prop-info"><img src="@/assets/icons/room1.png" alt="..."> 3 Rooms</div></div>
+            </div>
+
+            <div class="row mt-5 justify-content-center">
+                <div class="col-md-5"><div class="container mt-2 pt-3 pb-3 prop-info"><img src="@/assets/icons/bed1.png" alt="..."> 2 Beds</div></div>
+                <div class="col-md-5"><div class="container mt-2 pt-3 pb-3 prop-info"><img src="@/assets/icons/bath1.png" alt="..."> 1 Baths</div></div>
+            </div>
+
+            <div class="row mt-5 justify-content-center">
+                <div class="col-md-5"><div class="container mt-2 pt-3 pb-3 prop-info"><img id="address-icon" src="@/assets/icons/address1.png" alt="..."> E Hyde Park Blvd 2059</div></div>
+                <div class="col-md-5"><div class="container mt-2 pt-3 pb-3 prop-info"><img id="address-icon" src="@/assets/icons/world2.png" alt="..."> Los Angeles, California, USA</div></div>
+            </div>
+
+        </div>
+
+        <!-- right column (photos and map) -->
+        <div class="col-md-6 mt-4">
+            <div class="row mt-2">
+                <div :id="`carousel${propId}`" class="carousel slide border" data-bs-interval="false">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="https://i.ibb.co/MVG3q9F/la.webp" class="d-block w-100" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://i.ibb.co/kKChfG9/img2.webp" class="d-block w-100" alt="...">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" :data-bs-target="`#carousel${propId}`" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" :data-bs-target="`#carousel${propId}`" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
-                <button class="carousel-control-prev" type="button" :data-bs-target="`#carousel${propId}`" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" :data-bs-target="`#carousel${propId}`" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
             </div>
         </div>
 
-        <div class="col-md-6 mt-2" id="map" ref="mapElement"></div>
-    </div>
-    
-    <div class="row mt-5">
-        <div class="col-md-2"></div>
-        <div class="col-md-2 mt-2 text-center" id="status-price">For Sale</div>
-        <div class="col-md-3"></div>
-        <div class="col-md-3 mt-2 text-center" id="status-price">$ 2.500.000</div>
     </div>
 
-    <div class="row mt-5 justify-content-center">
-        <div class="col-md-2"><div class="container mt-2 pt-3 pb-3 prop-info"><img id="area-icon" src="@/assets/icons/area1.png" alt="..."> 250 mt2</div></div>
-        <div class="col-md-2"><div class="container mt-2 pt-3 pb-3 prop-info"><img src="@/assets/icons/room1.png" alt="..."> 3 Rooms</div></div>
-        <div class="col-md-2"><div class="container mt-2 pt-3 pb-3 prop-info"><img src="@/assets/icons/bed1.png" alt="..."> 2 Beds</div></div>
-        <div class="col-md-2"><div class="container mt-2 pt-3 pb-3 prop-info"><img src="@/assets/icons/bath1.png" alt="..."> 1 Baths</div></div>
-      </div>
-
-    <div class="row mt-5 justify-content-center">
-      <div class="col-md-3"><div class="container mt-2 pt-3 pb-3 prop-info"><img id="address-icon" src="@/assets/icons/address1.png" alt="..."> Lake St. 2059</div></div>
-      <div class="col-md-3"><div class="container mt-2 pt-3 pb-3 prop-info"><img id="address-icon" src="@/assets/icons/world2.png" alt="..."> Los Angeles, California, USA</div></div>
+    <div class="row justify-content-around mt-5">
+        <div class="col-md-2 text-center" id="status-price">For Sale</div>
+        <div class="col-md-3 text-center" id="status-price">$ 2.500.000</div>
     </div>
 
     <div class="row mt-5 justify-content-center">
@@ -59,6 +68,10 @@
         </div>
     </div>
 
+    <div class="row justify-content-center">
+        <div class="col-md-6 mt-5" id="map" ref="mapElement"></div>
+    </div>
+
 </div>
 </template>
 
@@ -66,7 +79,7 @@
 
 <script>
 const tilesProvider = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
-const propLocation = 'avenida alem 1053 bahia blanca';
+const propLocation = 'E Hyde Park Blvd 2059 los angeles';
 const propLocationQuery = propLocation.replace(/ /g, '+');
 const nominatimAPI = `https://nominatim.openstreetmap.org/search?q=${propLocationQuery}&format=json`;
 
@@ -140,13 +153,13 @@ export default {
 
 #map{ 
   height: 400px;
-  width: 600px;
+  width: 1000px;
 }
 
 @media (max-width: 1400px) {
   #map {
-    height: 335px;
-    width: 500px;
+    height: 500px;
+    width: 440px;
   }
 }
 
