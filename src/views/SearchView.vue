@@ -11,7 +11,6 @@
             <div class="row">
                 <div class="col-md-2"></div>
                 <!-- city filter -->
-                
                 <div class="col-md-4">
                     <label class="category mb-2" for="city"><img id="address-icon" src="@/assets/icons/world2.png" alt="..."> City</label>
                     <select name="city_id" class="form-select">
@@ -160,9 +159,7 @@
 
 </template>
 
-<script>
 
-</script>
 
 <style>
 .search-title{

@@ -1,3 +1,12 @@
+<script>
+export default {
+    name: 'PropertyCard',
+    props: ['propId'],
+}
+</script>
+
+
+
 <template>
 <RouterLink :to="`/property/${propId}`">
 <div class="card mb-3 rounded-0">
@@ -24,10 +33,6 @@
   </div>
 
   <div class="card-body">
-    <!--<div class="row justify-content-between">
-      <div class="col-md-5">SALE</div>
-      <div class="col-md-7" align="right" id="price">$ 2.500.000</div>
-    </div>-->
     <div class="row justify-content-left mt-4">
       <div class="col-md-6"><img id="area-icon" src="@/assets/icons/area1.png" alt="..."> 250 mt2</div>
       <div class="col-md-6"><img src="@/assets/icons/room1.png" alt="..."> 3 Rooms</div>
@@ -42,30 +47,18 @@
     <div class="row justify-content-left mt-2">
       <div class="col-md-12"><img id="address-icon" src="@/assets/icons/world2.png" alt="..."> Los Angeles</div>
     </div>
-    <!--<div class="row justify-content-center mt-4">
-      <a href="#" class="col-md-4 btn btn-success rounded-0">View more</a>
-    </div>-->
   </div>
   
 </div>
 </RouterLink>
 </template>
 
-<script>
-export default {
-    name: 'PropertyCard',
-    props: ['propId'],
-}
-</script>
+
 
 <style>
 .card-body{
   font-size: 20px;
   color: white;
-}
-
-#price{
-  font-size: 30px;
 }
 
 #area-icon{

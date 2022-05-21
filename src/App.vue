@@ -5,10 +5,10 @@
 </template>
 
 <script>
+import('@/assets/mdb.dark.css');
 import Navbar from './components/Navbar.vue';
 import PropertyCard from './components/PropertyCard.vue';
 import Footer from './components/Footer.vue';
-import('@/assets/mdb.dark.css');
 
 export default {
   name: 'App',

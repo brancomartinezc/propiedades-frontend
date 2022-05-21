@@ -28,6 +28,8 @@
   </div>
 </template>
 
+
+
 <style>
 .subtitle{
   font-size: 40px;
