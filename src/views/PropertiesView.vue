@@ -16,9 +16,7 @@
   </div>
 </template>
 
-<script>
-import PropertyCard from '../components/PropertyCard.vue'
-</script>
+
 
 <style>
 .subtitle{

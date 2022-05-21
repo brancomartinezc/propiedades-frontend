@@ -1,20 +1,22 @@
-<template>
-
-    <div class="card mt-2">
-        <div class="card-body">
-            <img :src="`${cityImage}`" alt="..." class="city-img">
-            <div align="center" class="centered city-data">{{cityName}}</div>
-        </div>
-    </div>
-
-</template>
-
 <script>
 export default {
     name: 'CityCard',
     props: ['cityName','cityImage'],
 }
 </script>
+
+
+
+<template>
+<div class="card mt-2">
+    <div class="card-body">
+        <img :src="`${cityImage}`" alt="..." class="city-img">
+        <div align="center" class="centered city-data">{{cityName}}</div>
+    </div>
+</div>
+</template>
+
+
 
 <style>
 .centered {
@@ -31,7 +33,6 @@ export default {
 }
 
 .city-data {
-    /*background-color: rgba(7,7,7,0.);*/
     padding: 5px;
     font-weight: 1000;
     text-transform: uppercase;
