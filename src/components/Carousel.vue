@@ -1,7 +1,7 @@
 <script>
 export default {
     name: 'Carousel',
-    props: ['propId'],
+    props: ['propId', 'propStatus', 'propPrice'],
 }
 </script>
 
@@ -26,4 +26,36 @@ export default {
         <span class="visually-hidden">Next</span>
     </button>
 </div>
+<div class="sale-rent-label">for {{propStatus}}</div>
+<div class="price-label">$ {{propPrice}}</div>
 </template>
+
+
+
+<style>
+.sale-rent-label {
+    background-color: #29852A;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 20%);
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: 700;
+    padding: 4px 8px;
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    text-transform: uppercase;
+}
+
+.price-label {
+    background-color: #29852A;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 20%);
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: 700;
+    padding: 4px 8px;
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    text-transform: uppercase;
+}
+</style>
