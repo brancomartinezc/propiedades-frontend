@@ -10,23 +10,23 @@ let id;
 let latitude;
 let longitude;
 
-let getCoords = async (propAddress) => {
+let getCoords = async (propAddress, propCity) => {
 
-  propLocation = `${propAddress}`
+  propLocation = `${propAddress} ${propCity}`
   propLocationQuery = propLocation.replace(/ /g, '+');
   nominatimAPI = `https://nominatim.openstreetmap.org/search?q=${propLocationQuery}&format=json`;
+  console.log(nominatimAPI);
 
   const response = await fetch(nominatimAPI);
   let coords = await response.json();
-  console.log(response.body);
 
   latitude = coords[0].lat;
   longitude = coords[0].lon;
 };
 
-let setMap = async (propAddress) => {
+let setMap = async (propAddress, propCity) => {
 
-  await getCoords(propAddress);
+  await getCoords(propAddress, propCity);
 
   let map = L.map('map').setView([latitude, longitude], 13);
 
@@ -49,13 +49,12 @@ export default {
       }
     },
     mounted () {
-      setMap(this.property.address);
+      setMap(this.property.address, this.property.city_name);
     },
     methods: {
       async getProperty(id){
-        const response = await fetch(`${unitedAPI}properties/${id}`);
-
-        this.property = await response.json();
+        const responseProp = await fetch(`${unitedAPI}properties/${id}`);
+        this.property = await responseProp.json();
       }
     }
 }
@@ -83,7 +82,7 @@ export default {
 
             <div class="row mt-5 justify-content-center">
                 <div class="col-md-5"><div class="container mt-2 pt-3 pb-3 prop-info"><img id="address-icon" src="@/assets/icons/address1.png" alt="..."> {{property.address}}</div></div>
-                <div class="col-md-5"><div class="container mt-2 pt-3 pb-3 prop-info"><img id="address-icon" src="@/assets/icons/world2.png" alt="..."> {{property.city_id}}</div></div>
+                <div class="col-md-5"><div class="container mt-2 pt-3 pb-3 prop-info"><img id="address-icon" src="@/assets/icons/world2.png" alt="..."> {{property.city_name}}, {{property.city_state}}, {{property.country_code}}</div></div>
             </div>
 
         </div>
