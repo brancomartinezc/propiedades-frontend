@@ -1,7 +1,23 @@
 <script>
+let unitedAPI = 'https://branco-api-iaw.herokuapp.com/';
+let photos;
+
 export default {
     name: 'Carousel',
-    props: ['propId', 'propStatus', 'propPrice'],
+    props: ['propId', 'propStatus', 'propPrice', 'isInCard'],
+    data(){
+        this.getPropertyPhotos(this.propId);
+        return {
+            photos
+        }
+    },
+    methods: {
+        async getPropertyPhotos(propId){
+            console.log(propId)
+            const response = await fetch(`${unitedAPI}properties/photos/${propId}`);
+            this.photos = await response.json();
+        }
+    }
 }
 </script>
 
@@ -10,11 +26,8 @@ export default {
 <template>
 <div :id="`carousel${propId}`" class="carousel slide" data-bs-interval="false">
     <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="https://i.ibb.co/MVG3q9F/la.webp" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-            <img src="https://i.ibb.co/kKChfG9/img2.webp" class="d-block w-100" alt="...">
+        <div class="carousel-item" v-for="(photo, index) in photos" :key="photo.id" :class="{ 'active': index === 0 }">
+            <img :src="`${photo.path}`" class="d-block w-100" alt="...">
         </div>
     </div>
     <button class="carousel-control-prev" type="button" :data-bs-target="`#carousel${propId}`" data-bs-slide="prev">
@@ -26,8 +39,8 @@ export default {
         <span class="visually-hidden">Next</span>
     </button>
 </div>
-<div class="sale-rent-label">for {{propStatus}}</div>
-<div class="price-label">$ {{propPrice}}</div>
+<div class="sale-rent-label" v-if="isInCard">for {{propStatus}}</div>
+<div class="price-label" v-if="isInCard">$ {{propPrice}}</div>
 </template>
 
 

@@ -14,7 +14,8 @@ export default {
   <Carousel 
     :propId="`${propId}`"
     :propStatus="`${propStatus}`" 
-    :propPrice="`${propPrice}`"/>
+    :propPrice="`${propPrice}`"
+    :isInCard="true" />
 
   <div class="card-body">
     <div class="row justify-content-left mt-4">

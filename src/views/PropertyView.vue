@@ -31,8 +31,12 @@ let setMap = async () => {
 }
 
 export default {
-    name: 'PropertiesView',
-    props: ['propId'],
+    name: 'PropertyView',
+    data() {
+      return {
+        id: this.$route.params.id
+      }
+    },
     mounted () {
       setMap();
     }
@@ -69,7 +73,7 @@ export default {
         <!-- right column (photos) -->
         <div class="col-md-6 mt-4">
             <div class="row mt-2">
-                <Carousel :propId="`${propId}`" />
+                <Carousel :propId="`${id}`" />
             </div>
         </div>
 
