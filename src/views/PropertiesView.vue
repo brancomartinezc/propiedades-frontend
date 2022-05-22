@@ -19,12 +19,10 @@ const queryJson = {
 
 export default {
   data(){
+    this.getProperties();
     return {
       properties
     }
-  },
-  mounted(){
-    this.getProperties();
   },
   methods: {
     async getProperties(){

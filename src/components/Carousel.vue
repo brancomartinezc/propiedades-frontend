@@ -13,7 +13,6 @@ export default {
     },
     methods: {
         async getPropertyPhotos(propId){
-            console.log(propId)
             const response = await fetch(`${unitedAPI}properties/photos/${propId}`);
             this.photos = await response.json();
         }

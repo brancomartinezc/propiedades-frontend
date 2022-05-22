@@ -1,24 +1,32 @@
 <script>
 const tilesProvider = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
-const propLocation = 'E Hyde Park Blvd 2059 los angeles';
-const propLocationQuery = propLocation.replace(/ /g, '+');
-const nominatimAPI = `https://nominatim.openstreetmap.org/search?q=${propLocationQuery}&format=json`;
+const unitedAPI = 'https://branco-api-iaw.herokuapp.com/';
 
+let propLocation;
+let propLocationQuery;
+let nominatimAPI;
+let property;
+let id;
 let latitude;
 let longitude;
 
-let getCoords = async () => {
+let getCoords = async (propAddress) => {
+
+  propLocation = `${propAddress}`
+  propLocationQuery = propLocation.replace(/ /g, '+');
+  nominatimAPI = `https://nominatim.openstreetmap.org/search?q=${propLocationQuery}&format=json`;
 
   const response = await fetch(nominatimAPI);
   let coords = await response.json();
+  console.log(response.body);
 
   latitude = coords[0].lat;
   longitude = coords[0].lon;
 };
 
-let setMap = async () => {
+let setMap = async (propAddress) => {
 
-  await getCoords();
+  await getCoords(propAddress);
 
   let map = L.map('map').setView([latitude, longitude], 13);
 
@@ -33,12 +41,22 @@ let setMap = async () => {
 export default {
     name: 'PropertyView',
     data() {
+      id = this.$route.params.id
+      this.getProperty(id);
       return {
-        id: this.$route.params.id
+        id,
+        property
       }
     },
     mounted () {
-      setMap();
+      setMap(this.property.address);
+    },
+    methods: {
+      async getProperty(id){
+        const response = await fetch(`${unitedAPI}properties/${id}`);
+
+        this.property = await response.json();
+      }
     }
 }
 </script>
@@ -54,18 +72,18 @@ export default {
         <div class="col-md-6">
             
             <div class="row mt-5 justify-content-center">
-                <div class="col-md-5"><div class="container mt-2 pt-3 pb-3 prop-info"><img id="area-icon" src="@/assets/icons/area1.png" alt="..."> 250 mt2</div></div>
-                <div class="col-md-5"><div class="container mt-2 pt-3 pb-3 prop-info"><img src="@/assets/icons/room1.png" alt="..."> 3 Rooms</div></div>
+                <div class="col-md-5"><div class="container mt-2 pt-3 pb-3 prop-info"><img id="area-icon" src="@/assets/icons/area1.png" alt="..."> {{property.area}} mt2</div></div>
+                <div class="col-md-5"><div class="container mt-2 pt-3 pb-3 prop-info"><img src="@/assets/icons/room1.png" alt="..."> {{property.rooms}} Rooms</div></div>
             </div>
 
             <div class="row mt-5 justify-content-center">
-                <div class="col-md-5"><div class="container mt-2 pt-3 pb-3 prop-info"><img src="@/assets/icons/bed1.png" alt="..."> 2 Beds</div></div>
-                <div class="col-md-5"><div class="container mt-2 pt-3 pb-3 prop-info"><img src="@/assets/icons/bath1.png" alt="..."> 1 Baths</div></div>
+                <div class="col-md-5"><div class="container mt-2 pt-3 pb-3 prop-info"><img src="@/assets/icons/bed1.png" alt="..."> {{property.beds}} Beds</div></div>
+                <div class="col-md-5"><div class="container mt-2 pt-3 pb-3 prop-info"><img src="@/assets/icons/bath1.png" alt="..."> {{property.baths}} Baths</div></div>
             </div>
 
             <div class="row mt-5 justify-content-center">
-                <div class="col-md-5"><div class="container mt-2 pt-3 pb-3 prop-info"><img id="address-icon" src="@/assets/icons/address1.png" alt="..."> E Hyde Park Blvd 2059</div></div>
-                <div class="col-md-5"><div class="container mt-2 pt-3 pb-3 prop-info"><img id="address-icon" src="@/assets/icons/world2.png" alt="..."> Los Angeles, California, USA</div></div>
+                <div class="col-md-5"><div class="container mt-2 pt-3 pb-3 prop-info"><img id="address-icon" src="@/assets/icons/address1.png" alt="..."> {{property.address}}</div></div>
+                <div class="col-md-5"><div class="container mt-2 pt-3 pb-3 prop-info"><img id="address-icon" src="@/assets/icons/world2.png" alt="..."> {{property.city_id}}</div></div>
             </div>
 
         </div>
@@ -81,22 +99,14 @@ export default {
 
     <!-- type, status and price -->
     <div class="row justify-content-around mt-5">
-        <div class="col-md-4 text-center status-price">Apartment for Sale</div>
-        <div class="col-md-3 text-center status-price">$ 2.500.000</div>
+        <div class="col-md-4 text-center mt-2 status-price">{{property.type}} for {{property.sale_rent}}</div>
+        <div class="col-md-3 text-center mt-2 status-price">$ {{property.price}}</div>
     </div>
 
     <!-- description -->
     <div class="row mt-5 justify-content-center">
         <div class="col-md-10">
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis facere, 
-          quis officia sequi, iure nisi unde cumque asperiores doloribus expedita inventore accusantium 
-          blanditiis. Incidunt blanditiis saepe, asperiores quas neque temporibus!
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis facere, 
-          quis officia sequi, iure nisi unde cumque asperiores doloribus expedita inventore accusantium 
-          blanditiis. Incidunt blanditiis saepe, asperiores quas neque temporibus!
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis facere, 
-          quis officia sequi, iure nisi unde cumque asperiores doloribus expedita inventore accusantium 
-          blanditiis. Incidunt blanditiis saepe, asperiores quas neque temporibus!</p>
+          <p>{{property.description}}</p>
         </div>
     </div>
 
