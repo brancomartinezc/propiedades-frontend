@@ -1,8 +1,25 @@
 <script>
+const unitedAPI = 'https://branco-api-iaw.herokuapp.com/';
+let city;
+
 export default {
     name: 'PropertyCard',
-    props: ['propId', 'propStatus', 'propType', 'propAddress', 'propArea', 'propPrice', 'propBeds', 'propRooms', 'propBaths', 'propCity'],
+    props: ['propId', 'propStatus', 'propType', 'propAddress', 'propArea', 
+            'propPrice', 'propBeds', 'propRooms', 'propBaths', 'propCity'],
+    data(){
+      this.getCity(this.propCity);
+      return {
+        city
+      }
+    },
+    methods: {
+      async getCity(propCity){
+        const response = await fetch(`${unitedAPI}cities/${propCity}`);
+        this.city = await response.json();
+      }
+    }
 }
+//{{city.name}}, {{city.state}}, {{city.country}}
 </script>
 
 
@@ -30,7 +47,7 @@ export default {
       <div class="col-md-12"><img id="address-icon" src="@/assets/icons/address1.png" alt="..."> {{propAddress}}</div>
     </div>
     <div class="row justify-content-left mt-2">
-      <div class="col-md-12"><img id="address-icon" src="@/assets/icons/world2.png" alt="..."> {{propCity}}</div>
+      <div class="col-md-12"><img id="address-icon" src="@/assets/icons/world2.png" alt="..."> {{city}}</div>
     </div>
   </div>
   

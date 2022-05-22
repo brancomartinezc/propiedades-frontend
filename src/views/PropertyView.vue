@@ -12,7 +12,7 @@ let longitude;
 
 let getCoords = async (propAddress, propCity) => {
 
-  propLocation = `${propAddress} ${propCity}`
+  propLocation = `${propAddress} ${propCity}`;
   propLocationQuery = propLocation.replace(/ /g, '+');
   nominatimAPI = `https://nominatim.openstreetmap.org/search?q=${propLocationQuery}&format=json`;
   console.log(nominatimAPI);
@@ -53,8 +53,8 @@ export default {
     },
     methods: {
       async getProperty(id){
-        const responseProp = await fetch(`${unitedAPI}properties/${id}`);
-        this.property = await responseProp.json();
+        const response = await fetch(`${unitedAPI}properties/${id}`);
+        this.property = await response.json();
       }
     }
 }

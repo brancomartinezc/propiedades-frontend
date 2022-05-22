@@ -1,5 +1,5 @@
 <script>
-let unitedAPI = 'https://branco-api-iaw.herokuapp.com/';
+const unitedAPI = 'https://branco-api-iaw.herokuapp.com/';
 let photos;
 
 export default {
