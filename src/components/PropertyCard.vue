@@ -1,6 +1,5 @@
 <script>
 const unitedAPI = 'https://branco-api-iaw.herokuapp.com/';
-let city;
 
 export default {
     name: 'PropertyCard',

@@ -1,8 +1,5 @@
 <script>
 let unitedAPI = 'https://branco-api-iaw.herokuapp.com/';
-let properties;
-let propsCount;
-let citiesCount;
 
 const queryJson = {
 	type: "*",
@@ -21,15 +18,13 @@ const queryJson = {
 
 export default {
   data(){
-    return {
-      properties,
-      propsCount,
-      citiesCount
-    }
-  },
-  created(){
     this.getProperties();
     this.getCounts();
+    return {
+      properties: [],
+      propsCount: 0,
+      citiesCount: 0
+    }
   },
   methods: {
     async getProperties(){

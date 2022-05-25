@@ -1,24 +1,18 @@
 <script>
-let unitedAPI = 'https://branco-api-iaw.herokuapp.com/properties';
-let propsCount;
-let citiesCount;
+let unitedAPI = 'https://branco-api-iaw.herokuapp.com/';
 
 export default {
   data(){
-    this.getCounts();
+    this.getLatestProperties();
     return {
-      propsCount,
-      citiesCount
+      properties: []
     }
   },
   methods: {
-    async getCounts(id){
-      const responseProps = await fetch(`${unitedAPI}properties/count`);
-      propsCount = await responseProps.json();
-
-      const responseCities = await fetch(`${unitedAPI}cities/count`);
-      citiesCount = await responseCities.json();
-    }
+    async getLatestProperties(){
+      const response = await fetch(`${unitedAPI}properties/latest`);
+      this.properties = await response.json();
+    },
   }
 }
 </script>
@@ -33,9 +27,19 @@ export default {
     </div>
 
     <div class="row mt-5">
-      <div class="col-md-4"> <PropertyCard propId="1"/> </div>
-      <div class="col-md-4"> <PropertyCard propId="2"/> </div>
-      <div class="col-md-4"> <PropertyCard propId="3"/> </div>
+      <div class="col-md-4" v-for="property in properties" :key="property.id"> 
+        <PropertyCard 
+          :propId="`${property.id}`" 
+          :propStatus="`${property.sale_rent}`" 
+          :propType="`${property.type}`" 
+          :propAddress="`${property.address}`" 
+          :propArea="`${property.area}`" 
+          :propPrice="`${property.price}`" 
+          :propBeds="`${property.beds}`" 
+          :propRooms="`${property.rooms}`" 
+          :propBaths="`${property.baths}`" 
+          :propCity="`${property.city_id}`" /> 
+      </div>
     </div>
 
     <div class="row mt-5">
