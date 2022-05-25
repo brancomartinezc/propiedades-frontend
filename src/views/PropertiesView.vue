@@ -61,7 +61,7 @@ export default {
       <div class="col-md-12 subtitle" align="center">{{propsCount.count}} properties in {{citiesCount.count}} cities</div>
     </div>
 
-    <div class="row mt-5">
+    <div class="row mt-5" v-if="properties.length">
       <div class="col-md-4" v-for="property in properties" :key="property.id"> 
         <PropertyCard 
           :propId="`${property.id}`" 
@@ -76,6 +76,9 @@ export default {
           :propCity="`${property.city_id}`" /> 
       </div>
     </div>
+    <div class="row mt-5" v-else>
+        <div class="col-md-12 not-found">There are no properties yet.</div>
+    </div>
     
   </div>
 </template>
@@ -85,5 +88,9 @@ export default {
 <style>
 .subtitle{
   font-size: 40px;
+}
+
+.not-found{
+    font-size: 40px;
 }
 </style>

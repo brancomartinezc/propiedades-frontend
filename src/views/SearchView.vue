@@ -42,7 +42,7 @@ export default {
             const response = await fetch(`${unitedAPI}cities`);
             this.cities = await response.json();
         },
-        searchClick(){
+        searchClick(){ //sets the form values in the json for the api fetch
             if(this.city_id != 0){
                 this.queryJson.city_id = this.city_id;
             }
@@ -50,7 +50,7 @@ export default {
                 this.queryJson.type = this.type;
             }
             if(this.status != 0){
-                this.queryJson.status = this.status;
+                this.queryJson.sale_rent = this.status;
             }
             if(this.min_area != '' && this.min_area != 0){
                 this.queryJson.min_area = this.min_area;
@@ -93,6 +93,38 @@ export default {
 
             this.properties = await response.json();
             this.propertiesHidden = false;
+        },
+        newSearchClick(){ //hides properties, shows search form and reset every variable
+            this.propertiesHidden = true;
+            this.searchHidden = false;
+            this.city_id = 0,
+            this.type = 0,
+            this.status = 0,
+            this.min_area = '',
+            this.max_area = '',
+            this.min_price = '',
+            this.max_price = '',
+            this.min_beds = '',
+            this.max_beds = '',
+            this.min_rooms = '',
+            this.max_rooms = '',
+            this.min_baths = '',
+            this.searchHidden = false,
+            this.propertiesHidden = true,
+            this.queryJson = {
+                type: "*",
+                sale_rent: "*",
+                city_id: "*",
+                min_area: "*",
+                max_area: "*",
+                min_price: "*",
+                max_price: "*",
+                min_beds: "*",
+                max_beds: "*",
+                min_rooms: "*",
+                max_rooms: "*",
+                min_baths: "*"
+            }
         }
     }
 }
@@ -208,7 +240,7 @@ export default {
                     </div>
                 </div>
             </div>
-                
+
             <div class="row mt-3 justify-content-center">
                 <!-- beds filter -->
                 <div class="col-md-5">
@@ -267,20 +299,29 @@ export default {
 
     <!-- properties container -->
     <div class="container" v-if="!propertiesHidden">
-        <div class="row mt-5">
-            <div class="col-md-4" v-for="property in properties" :key="property.id"> 
-            <PropertyCard 
-                :propId="`${property.id}`" 
-                :propStatus="`${property.sale_rent}`" 
-                :propType="`${property.type}`" 
-                :propAddress="`${property.address}`" 
-                :propArea="`${property.area}`" 
-                :propPrice="`${property.price}`" 
-                :propBeds="`${property.beds}`" 
-                :propRooms="`${property.rooms}`" 
-                :propBaths="`${property.baths}`" 
-                :propCity="`${property.city_id}`" /> 
+        <div class="row mt-2">
+            <div class="col-md-3 mt-5">
+                <a class="btn btn-primary" id="search-btn" @click="newSearchClick">New search</a>
             </div>
+        </div>
+
+        <div class="row mt-5" v-if="properties.length">
+            <div class="col-md-4" v-for="property in properties" :key="property.id"> 
+                <PropertyCard 
+                    :propId="`${property.id}`" 
+                    :propStatus="`${property.sale_rent}`" 
+                    :propType="`${property.type}`" 
+                    :propAddress="`${property.address}`" 
+                    :propArea="`${property.area}`" 
+                    :propPrice="`${property.price}`" 
+                    :propBeds="`${property.beds}`" 
+                    :propRooms="`${property.rooms}`" 
+                    :propBaths="`${property.baths}`" 
+                    :propCity="`${property.city_id}`" /> 
+            </div>
+        </div>
+        <div class="row mt-5" v-else>
+            <div class="col-md-12 not-found">No properties were found for your search.</div>
         </div>
     </div>
 
@@ -304,6 +345,10 @@ export default {
 
 .label-font-size{
     font-size: 20px;
+}
+
+.not-found{
+    font-size: 40px;
 }
 
 #price-icon{
