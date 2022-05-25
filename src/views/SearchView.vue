@@ -76,11 +76,11 @@
                     <div class="row justify-content-center">
                         <div class="col-md-4">
                             <label class="col-form-label col-form-label-lg" for="min_area">Min area</label>
-                            <input class="form-control form-control-lg" type="number" id="min_area">
+                            <input class="form-control form-control-lg" v-model.number="min_area" type="number" id="min_area">
                         </div>
                         <div class="col-md-4">
                             <label class="col-form-label col-form-label-lg" for="max_area">Max area</label>
-                            <input class="form-control form-control-lg" type="number" id="max_area">
+                            <input class="form-control form-control-lg" v-model.number="max_area" type="number" id="max_area">
                         </div>
                     </div>
                 </div>
@@ -92,11 +92,11 @@
                     <div class="row justify-content-center">
                         <div class="col-md-4">
                             <label class="col-form-label col-form-label-lg" for="min_price">Min price</label>
-                            <input class="form-control form-control-lg" type="number" id="min_price">
+                            <input class="form-control form-control-lg" v-model.number="min_price" type="number" id="min_price">
                         </div>
                         <div class="col-md-4">
                             <label class="col-form-label col-form-label-lg" for="max_price">Max price</label>
-                            <input class="form-control form-control-lg" type="number" id="max_price">
+                            <input class="form-control form-control-lg" v-model.number="max_price" type="number" id="max_price">
                         </div>
                     </div>
                 </div>
@@ -111,16 +111,16 @@
                     <div class="row justify-content-center">
                         <div class="col-md-4">
                             <label class="col-form-label col-form-label-lg" for="min_beds">Min beds</label>
-                            <input class="form-control form-control-lg" type="number" id="min_beds">
+                            <input class="form-control form-control-lg" v-model.number="min_beds" type="number" id="min_beds">
                         </div>
                         <div class="col-md-4">
                             <label class="col-form-label col-form-label-lg" for="max_beds">Max beds</label>
-                            <input class="form-control form-control-lg" type="number" id="max_beds">
+                            <input class="form-control form-control-lg" v-model.number="max_beds" type="number" id="max_beds">
                         </div>
                     </div>
                 </div>
 
-                 <!-- rooms filter -->
+                <!-- rooms filter -->
                 <div class="col-md-5">
                     <div class="row mt-4 justify-content-center">
                         <div class="col-md-4 category"><img src="@/assets/icons/room1.png" alt="..."> Rooms</div>
@@ -128,11 +128,11 @@
                     <div class="row justify-content-center">
                         <div class="col-md-4">
                             <label class="col-form-label col-form-label-lg" for="min_rooms">Min rooms</label>
-                            <input class="form-control form-control-lg" type="number" id="min_rooms">
+                            <input class="form-control form-control-lg" v-model.number="min_rooms" type="number" id="min_rooms">
                         </div>
                         <div class="col-md-4">
                             <label class="col-form-label col-form-label-lg" for="max_rooms">Max rooms</label>
-                            <input class="form-control form-control-lg" type="number" id="max_rooms">
+                            <input class="form-control form-control-lg" v-model.number="max_rooms" type="number" id="max_rooms">
                         </div>
                     </div>
                 </div>
@@ -146,7 +146,7 @@
                 <!-- baths filter -->
                 <div class="col-md-2">
                     <label class="col-form-label col-form-label-lg" for="min_baths">Min baths</label>
-                    <input class="form-control form-control-lg" type="number" id="min_baths">
+                    <input class="form-control form-control-lg" v-model.number="min_baths" type="number" id="min_baths">
                 </div>
 
                 <div class="col-md-2 mt-5">

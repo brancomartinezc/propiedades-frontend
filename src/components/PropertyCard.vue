@@ -9,7 +9,7 @@ export default {
     data(){
       this.getCity(this.propCity);
       return {
-        city
+        city: 0
       }
     },
     methods: {
@@ -19,7 +19,7 @@ export default {
       }
     }
 }
-//{{city.name}}, {{city.state}}, {{city.country}}
+//
 </script>
 
 
@@ -47,7 +47,7 @@ export default {
       <div class="col-md-12"><img id="address-icon" src="@/assets/icons/address1.png" alt="..."> {{propAddress}}</div>
     </div>
     <div class="row justify-content-left mt-2">
-      <div class="col-md-12"><img id="address-icon" src="@/assets/icons/world2.png" alt="..."> {{city}}</div>
+      <div class="col-md-12"><img id="address-icon" src="@/assets/icons/world2.png" alt="..."> {{city.name}}, {{city.state}}, {{city.country}}</div>
     </div>
   </div>
   

@@ -1,6 +1,8 @@
 <script>
-let unitedAPI = 'https://branco-api-iaw.herokuapp.com/properties';
+let unitedAPI = 'https://branco-api-iaw.herokuapp.com/';
 let properties;
+let propsCount;
+let citiesCount;
 
 const queryJson = {
 	type: "*",
@@ -19,14 +21,19 @@ const queryJson = {
 
 export default {
   data(){
-    this.getProperties();
     return {
-      properties
+      properties,
+      propsCount,
+      citiesCount
     }
+  },
+  created(){
+    this.getProperties();
+    this.getCounts();
   },
   methods: {
     async getProperties(){
-      const response = await fetch(unitedAPI, {
+      const response = await fetch(`${unitedAPI}properties`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -35,6 +42,13 @@ export default {
       });
 
       this.properties = await response.json();
+    },
+    async getCounts(){
+      const responseProps = await fetch(`${unitedAPI}properties/count`);
+      this.propsCount = await responseProps.json();
+
+      const responseCities = await fetch(`${unitedAPI}cities/count`);
+      this.citiesCount = await responseCities.json();
     }
   }
 }
@@ -46,7 +60,7 @@ export default {
   <div class="container">
 
     <div class="row mt-5">
-      <div class="col-md-12 subtitle" align="center">15 properties in 5 cities</div>
+      <div class="col-md-12 subtitle" align="center">{{propsCount.count}} properties in {{citiesCount.count}} cities</div>
     </div>
 
     <div class="row mt-5">

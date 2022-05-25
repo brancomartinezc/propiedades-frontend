@@ -1,10 +1,33 @@
+<script>
+let unitedAPI = 'https://branco-api-iaw.herokuapp.com/properties';
+let propsCount;
+let citiesCount;
+
+export default {
+  data(){
+    this.getCounts();
+    return {
+      propsCount,
+      citiesCount
+    }
+  },
+  methods: {
+    async getCounts(id){
+      const responseProps = await fetch(`${unitedAPI}properties/count`);
+      propsCount = await responseProps.json();
+
+      const responseCities = await fetch(`${unitedAPI}cities/count`);
+      citiesCount = await responseCities.json();
+    }
+  }
+}
+</script>
+
+
+
 <template>
   <div class="container">
-    <!--<div class="row justify-content-center m-5">
-        <div class="col-md-2 text-center"><a class="btn btn-success btn-lg" href="#"><img src="icons/home3.png" alt="..." class="icons"></a></div>
-        <div class="col-md-2 text-center"><a class="btn btn-success btn-lg" href="#"><img src="icons/building1.png" alt="..." class="icons"></a></div>
-    </div>-->
-
+    
     <div class="row mt-5">
       <div align="center" class="col-md-12 subtitle"> Latest Properties </div>
     </div>
