@@ -26,6 +26,9 @@ export default {
       citiesCount: 0
     }
   },
+  mounted(){
+    console.log(this.$route.data)
+  },
   methods: {
     async getProperties(){
       const response = await fetch(`${unitedAPI}properties`, {
