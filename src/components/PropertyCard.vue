@@ -18,7 +18,6 @@ export default {
       }
     }
 }
-//
 </script>
 
 
@@ -46,7 +45,7 @@ export default {
       <div class="col-md-12"><img id="address-icon" src="@/assets/icons/address1.png" alt="..."> {{propAddress}}</div>
     </div>
     <div class="row justify-content-left mt-2">
-      <div class="col-md-12"><img id="address-icon" src="@/assets/icons/world2.png" alt="..."> {{city.name}}, {{city.state}}, {{city.country}}</div>
+      <div class="col-md-12"><img id="address-icon" src="@/assets/icons/world2.png" alt="..."> {{city.name}}, {{city.state}}, {{city.country_code}}</div>
     </div>
   </div>
   

@@ -1,3 +1,25 @@
+<script>
+const unitedAPI = 'https://branco-api-iaw.herokuapp.com/';
+
+export default {
+    name: 'SearchView',
+    data(){
+        this.getCities()
+        return {
+            cities: []
+        }
+    },
+    methods: {
+        async getCities(){
+            const response = await fetch(`${unitedAPI}cities`);
+            this.cities = await response.json();
+        }
+    }
+}
+</script>
+
+
+
 <template>
 
     <div class="container search-view mt-5 pt-5 pb-5">
@@ -14,8 +36,9 @@
                 <div class="col-md-4">
                     <label class="category mb-2" for="city"><img id="address-icon" src="@/assets/icons/world2.png" alt="..."> City</label>
                     <select name="city_id" class="form-select">
-                        <option value="1">Los Angeles, California, USA</option>
-                        <option value="2">Toronto, Ontario, CA</option>
+                        <option v-for="city in cities" :key="city.id" :value="`${city.id}`">
+                            {{city.name}}, {{city.state}}, {{city.country_code}}
+                        </option>
                     </select>
                 </div>
 
